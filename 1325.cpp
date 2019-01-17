@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <string.h>
 #define MAX 10001
 
 int N;
@@ -17,6 +18,9 @@ int DFS(int num){
         else{
             int vec_size = vec[num].size();
             for(int i=0; i<vec_size; ++i){
+                if(vec[num][i] == num){
+                    continue;
+                }
                 check_vec[num] += DFS(vec[num][i]) + 1;
             }
             isFinished[num] = true;
